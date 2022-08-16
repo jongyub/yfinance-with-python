@@ -1,29 +1,28 @@
 from pandas_datareader import data as pdr
 import yfinance as yf
 import matplotlib.pyplot as plt
-import math
 import numpy as np
+import math
 
+print("----------------------------------------------------------------------------------------------------------------------")
+print("----------------------------------------------------------------------------------------------------------------------")
+print("----------------------------------------------------------------------------------------------------------------------")
 yf.pdr_override()
 
-samsung = pdr.get_data_yahoo('^GSPC',start='2022-07-25')
-def func_max():
-    return max(samsung.Close)
-def func_latest():
-    return samsung.Close.tail(1)
+snp_500 = pdr.get_data_yahoo('^GSPC',start='1984-12-5')
 
-print(func_latest())
+#print(snp_500)
 
+#print(snp_500.index)
+#print(snp_500.columns)
 
-print(samsung)
+#plt.plot(snp_500.index,np.log10(snp_500.Close),'b',label='S&P 500')
+#plt.show()
 
-print(samsung.index)
-print(samsung.columns)
+#snp_500_maximum = max(snp_500.Close)
+#snp_500_today = snp_500.Close.tail(n=1)
 
+#bear_market_indicator = (snp_500_maximum - snp_500_today ) / snp_500_maximum*100
 
-plt.plot(samsung.index,np.log(samsung.Close),'b',label='Samsung Electronincs')
-plt.show()
-
-
-
+#print(bear_market_indicator)
 
